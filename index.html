@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
@@ -12,38 +12,55 @@
 </head>
 
 <body class="bg-stone-200 flex flex-col">
-  <!--cabeçalho-->
-  <header class="flex bg-slate-950 shadow-xl shadow-slate-400 px-8 py-4 justify-between sticky top-0 z-10" >
-    <img class="h-16" src="./assets/logo/logoecommerce.png" alt="Logo do Magazine Hashtag." />
-    <div class="text-slate-200 flex gap-2 items-center mx-2">
+  <section id="carrinho"
+    class="fixed top-0 right-[-360px] bg-slate-950 h-screen w-[360px] text-slate-200 z-50 duration-200 border-l border-slate-200 p-5 flex flex-col justify-between">
+    <div id="cabecalho-carrinho" class="flex justify-between m-4">
+      <p>Meu carrinho</p>
+      <button id="fechar-carrinho">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </button>
+    </div>
+    <section id="produtos-carrinho" class="h-3/5 overflow-y-auto flex flex-col gap-2"></section>
+    <p id="preco-total" class="bg-slate-200 text-green-800 rounded-sm pl-5">
+      Total: $0
+    </p>
+    <button class="bg-slate-200 text-slate-900 p-1 hover:text-slate-200 hover:bg-slate-900" id="finalizar-compra">
+      Finalizar Compra
+    </button>
+  </section>
+  <header class="flex text-xl bg-slate-950 shadow-xl shadow-slate-400 px-8 py-4 justify-between sticky top-0 z-10">
+    <a href="./">
+      <img class="h-16" src="./assets/logo/logoecommerce.png" alt="Logo do Magazine Hashtag." />
+    </a>
+    <div class="text-slate-200 flex gap-2 items-end mx-2">
       <button id="abrir-carrinho" class="mx-2">
         <i class="fa-solid fa-cart-shopping"></i>
       </button>
-      <button class="mr-2"><i class="fa-solid fa-user"></i></button>
+      <a href="./pedidos.html">
+        <button class="mr-2"><i class="fa-solid fa-user"></i></button>
+      </a>
     </div>
-    <!--menu carrinho-->
-    <section id="carrinho"
-      class="fixed top-0 right-[-360px] bg-slate-950 h-screen w-[360px] text-slate-200 z-50 duration-200 border-l border-slate-200 p-5 flex flex-col justify-between">
-      <div id="cabecalho-carrinho" class="flex justify-between m-4">
-        <p>Meu carrinho</p>
-        <button id="fechar-carrinho">
-          <i class="fa-solid fa-circle-xmark"></i>
-        </button>
-      </div>
-      <!--produtos carrinho(js renderizando)-->
-      <section id="produtos-carrinho" class="h-3/5 overflow-y-auto flex flex-col gap-2">
-      </section>
-      <!--fim produtos carrinho-->
-      <p id="preco-total">$200</p>
-      <button class="bg-slate-200 text-slate-900 p-1">Finalizar Compra</button>
-    </section>
   </header>
-  <!--fim cabeçalho-->
-  <!--card produtos(js renderizando)-->
-  <main>
+  <main class="flex flex-col items-center">
+    <section id="filtros" class="p-10 flex">
+      <div class="px-2">
+        <input id="exibir-todos" type="radio" name="filtro" class="peer hidden" checked />
+        <label for="exibir-todos"
+          class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold p-2 rounded-xl select-none cursor-pointer">Todos</label>
+      </div>
+      <div class="px-2">
+        <input id="exibir-masculinos" type="radio" name="filtro" class="peer hidden" />
+        <label for="exibir-masculinos"
+          class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold p-2 rounded-xl select-none cursor-pointer">Masculinos</label>
+      </div>
+      <div class="px-2">
+        <input id="exibir-femininos" type="radio" name="filtro" class="peer hidden" />
+        <label for="exibir-femininos"
+          class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold p-2 rounded-xl select-none cursor-pointer">Femininos</label>
+      </div>
+    </section>
     <section id="container-produto" class="flex flex-wrap p-10 justify-center gap-10"></section>
   </main>
-  <!--fim card produtos-->
   <script type="module" src="./main.js"></script>
 </body>
 
