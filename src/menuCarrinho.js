@@ -14,6 +14,7 @@ function fecharCarrinho() {
 
 function irParaCheckout() {
   if (Object.keys(idsProdutoCarrinhoComQuantidade).length === 0) {
+    alert("Carrinho vazio")
     return;
   }
   window.location.href = "./checkout.html";
